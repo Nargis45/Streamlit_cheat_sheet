@@ -4,6 +4,7 @@ import pandas as pd
 import annotated_text 
 from streamlit_card import card 
 from annotated_text import annotation
+from screen_size_component import get_screen_size
 from streamlit_extras.stylable_container import stylable_container
 
 st.set_page_config(layout="wide")
