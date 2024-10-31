@@ -1,6 +1,8 @@
 import streamlit as st
 import time
 import pandas as pd
+import numpy as np
+import random
 import annotated_text 
 from streamlit_card import card 
 import matplotlib.pyplot as plt
