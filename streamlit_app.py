@@ -21,6 +21,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.sidebar.title("Navigation")
+page = st.sidebar.radio("Select a page:", ["Home", "About", "Contact"])
+
 #tabs
 listTabs = ["Cheat Sheet", "Designs"]
 tab1, tab2= st.tabs(listTabs)
