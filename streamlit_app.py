@@ -2,6 +2,9 @@ import streamlit as st
 import time
 import pandas as pd
 import numpy as np
+from PIL import Image
+import requests
+from io import BytesIO
 import random
 import annotated_text 
 from streamlit_card import card 
@@ -481,9 +484,10 @@ st.write("This is hidden text")""")
         st.write('Media Elements')
         on12 = st.toggle("Activate features", key = 'nn11')
         if on12:
-            from PIL import Image
-
-            image = Image.open("https://github.com/Nargis45/Streamlit_cheat_sheet/blob/main/streamlit-logo.png")
+            url = "https://github.com/Nargis45/Streamlit_cheat_sheet/raw/main/streamlit-logo.png"
+            response = requests.get(url)
+            image = Image.open(BytesIO(response.content))
+            # image = Image.open("https://github.com/Nargis45/Streamlit_cheat_sheet/blob/main/streamlit-logo.png")
             st.image(image, caption="Streamlit Logo")
 
             # st.audio("path_to_audio.mp3")
