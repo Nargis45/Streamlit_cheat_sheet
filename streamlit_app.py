@@ -209,4 +209,107 @@ with st.echo():
         placeholder32 = st.empty()
         placeholder42 = st.empty()
 
+        if on2:
+            placeholder2.success("Success")
+            placeholder22.info('Information')
+            placeholder32.warning('Warning')
+            placeholder42.error('Error')
+        else:
+            st.code("""st.success("Success")
+st.info('Information')
+st.warning('Warning')
+st.error('Error')""")
+            
+        base_html4 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
 
+        on4 = st.toggle("Activate features", key = 'nn3')
+
+        placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+
+        if on4:
+            placeholder2.balloons()
+            placeholder22.snow()
+            bar = placeholder32.progress(50)
+            time.sleep(3)
+            bar.progress(100)
+            st.toast('I am here...')
+            with st.spinner("Loading..."):
+                time.sleep(6)
+            try:
+                1 / 0
+            except ZeroDivisionError as e:
+                placeholder42.exception(e)
+
+        else:
+            st.code("""st.balloons()
+st.snow()
+                    
+bar = st.progress(50)
+time.sleep(3)
+bar.progress(100)
+                    
+st.toast('I am here...')
+                    
+with st.spinner("Loading..."):
+    time.sleep(6)
+                    
+try:
+    1 / 0
+except ZeroDivisionError as e:
+    st.exception(e)""")
+        base_html5 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+        on15 = st.toggle("Activate features", key = '14')
+        if on15:
+            with st.status("Downloading data..."):
+                st.write("Searching for data...")
+                time.sleep(2)
+                st.write("Found URL.")
+                time.sleep(1)
+                st.write("Data Downloaded.")
+                time.sleep(1)
+        else: 
+            st.code("""with st.status("Downloading data..."):
+    st.write("Searching for data...")
+    time.sleep(2)
+    st.write("Found URL.")
+    time.sleep(1)
+    st.write("Downloading data...")
+    time.sleep(1)""")
+
+        togg = st.toggle("Activate features", key = 'togg')
+        if togg:
+            st.write('This is a text above divider')
+            st.divider()
+            st.write('This is  a text below divider')
+        else: 
+            st.code("""st.write('This is a text above divider')
+st.divider()
+st.write('This is  a text below divider')""")
+
+        st.write('Control Flow')
+        on5 = st.toggle("Activate features", key = 'nn4')
+
+        placeholder2 = st.empty()
+        placeholder32 = st.empty()
