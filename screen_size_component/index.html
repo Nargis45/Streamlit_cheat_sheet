@@ -1,0 +1,69 @@
+<html>
+  <body>
+    <script>
+      // This function returns an object containing the screen width and height, and the window's inner width and height.
+      function getScreenSize() {
+        return {
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height,
+          windowWidth: window.innerWidth,
+          windowHeight: window.innerHeight
+        };
+      }
+      // This function gets the screen size by calling getScreenSize() and then sends this data to Python using sendDataToPython.
+      function sendScreenSize() {
+        const size = getScreenSize();
+        sendDataToPython({ value: JSON.stringify(size), dataType: "json" });
+      }
+      // This listener triggers when the window is resized. It sends the new screen size and adjusts the frame height.
+      window.addEventListener('resize', function() {
+        sendScreenSize();
+        setFrameHeight(document.documentElement.clientHeight);
+      });
+      // This function sends a message to the Streamlit client. The type parameter specifies the type of message, and data contains the data to be sent.
+      function sendMessageToStreamlitClient(type, data) {
+        var outData = Object.assign({
+          isStreamlitMessage: true,
+          type: type,
+        }, data);
+        window.parent.postMessage(outData, "*");
+      }
+      // This function initializes the component by notifying Streamlit that the component is ready (streamlit:componentReady), sends the initial screen size, and sets the frame height.
+      function init() {
+        sendMessageToStreamlitClient("streamlit:componentReady", { apiVersion: 1 });
+        sendScreenSize();  // Send initial size
+        setFrameHeight(document.documentElement.clientHeight);
+      }
+      // This function sets the height of the frame containing the component.
+      function setFrameHeight(height) {
+        sendMessageToStreamlitClient("streamlit:setFrameHeight", { height: height });
+      }
+      // This function sends data to Python by calling sendMessageToStreamlitClient with the type streamlit:setComponentValue.
+      function sendDataToPython(data) {
+        sendMessageToStreamlitClient("streamlit:setComponentValue", data);
+      }
+      // This function listens for messages from Python (streamlit:render), evaluates the JavaScript expression received, and sends the result back to Python.
+      var data_from_streamlit = "";
+      function onDataFromPython(event) {
+        if (event.data.type !== "streamlit:render") return;
+        new_value = event.data.args.js_expressions;
+        if (new_value !== data_from_streamlit) {
+          data_from_streamlit = new_value;
+          want_output = event.data.args.hasOwnProperty('want_output') ? event.data.args.want_output : true;
+          console.log("Evaluating: " + data_from_streamlit);
+          result = eval(data_from_streamlit);
+          ret_val = want_output ? result : 'No output requested';
+          if (want_output) Promise.resolve(ret_val).then(function(value) {
+            console.log('Outputting ' + value);
+            sendDataToPython({ value: value, dataType: "json" });
+          });
+        }
+      }
+      // This listener triggers when the page loads. It sets up a message listener for communication with Python and calls init() to initialize the component.
+      window.addEventListener("load", function() {
+        window.addEventListener("message", onDataFromPython);
+        init();
+      });
+    </script>
+  </body>
+</html>
