@@ -44,7 +44,7 @@ if st.session_state.page == "Home":
         with col1:
             st.write('Install and Import')
             st.code("""$ pip install streamlit
-    import streamlit as st""")
+        import streamlit as st""")
             st.write('Run streamlit file')
             st.code("""streamlit run filename.py""")
     
@@ -172,10 +172,10 @@ if st.session_state.page == "Home":
                 placeholder5.write('This is a text using st.write')
             else:
                 st.code("""st.title("Hello Streamlit!!")
-    st.header('This is a header')
-    st.subheader('This is a subheader')
-    st.text('This is a text')
-    st.write('This is a text using st.write')""")
+        st.header('This is a header')
+        st.subheader('This is a subheader')
+        st.text('This is a text')
+        st.write('This is a text using st.write')""")
                 
             base_html3 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
