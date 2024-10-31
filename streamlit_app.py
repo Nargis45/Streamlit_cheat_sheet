@@ -747,7 +747,13 @@ if st.session_state.page == "Home":
             st.write("slider", slider_val, "checkbox", checkbox_val)""")
     
                 st.write('Database')  
-                st.code("""Database Connection Pending...""")
+                st.code("""
+                        st_conn = st.connection("sql")    
+                        
+                        conn = st.connection("my_sql_connection", type="streamlit.connections.SQLConnection")
+                        
+                        from streamlit.connections import SQLConnection
+                        conn = st.connection("my_sql_connection", type=SQLConnection).""")
             
     ## Designs
     with tab2:
