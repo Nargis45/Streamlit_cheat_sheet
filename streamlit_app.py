@@ -136,3 +136,35 @@ import streamlit as st""")
         """
 
         on = st.toggle("Activate features")
+        placeholder = st.empty()
+        placeholder2 = st.empty()
+        placeholder3 = st.empty()
+        placeholder4 = st.empty()
+        placeholder5 = st.empty()
+
+        if on:
+            placeholder.title("Hello Streamlit!!")
+            placeholder2.header('This is a header')
+            placeholder3.subheader('This is a subheader')
+            placeholder4.text('This is a text')
+            placeholder5.write('This is a text using st.write')
+        else:
+            st.code("""st.title("Hello Streamlit!!")
+st.header('This is a header')
+st.subheader('This is a subheader')
+st.text('This is a text')
+st.write('This is a text using st.write')""")
+            
+        base_html3 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+
+        on3 = st.toggle("Activate features", key = 'nn2')
