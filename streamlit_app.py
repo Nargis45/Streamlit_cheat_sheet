@@ -1150,7 +1150,7 @@ with tab3:
         
         st.success(f"Your personality type is: **{personality_type}** {emoji}")
         st.write("Scores breakdown:")
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(5, 3))  # Set size of the figure
         ax.bar(scores.keys(), scores.values(), color=['#FF9999', '#66B3FF', '#99FF99'])
         ax.set_ylabel("Scores")
         ax.set_title("Personality Type Scores")
@@ -1159,6 +1159,10 @@ with tab3:
         # Add data labels on bars
         for i, score in enumerate(scores.values()):
             ax.text(i, score + 0.1, str(score), ha='center')
+    
+        # Make the background transparent
+        plt.gca().patch.set_alpha(0)  # Set axes background transparent
+        fig.patch.set_alpha(0)  # Set figure background transparent
     
         st.pyplot(fig)
     
