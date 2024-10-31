@@ -44,7 +44,7 @@ if st.session_state.page == "Home":
         with col1:
             st.write('Install and Import')
             st.code("""$ pip install streamlit
-        import streamlit as st""")
+import streamlit as st""")
             st.write('Run streamlit file')
             st.code("""streamlit run filename.py""")
     
@@ -172,10 +172,10 @@ if st.session_state.page == "Home":
                 placeholder5.write('This is a text using st.write')
             else:
                 st.code("""st.title("Hello Streamlit!!")
-        st.header('This is a header')
-        st.subheader('This is a subheader')
-        st.text('This is a text')
-        st.write('This is a text using st.write')""")
+    st.header('This is a header')
+    st.subheader('This is a subheader')
+    st.text('This is a text')
+    st.write('This is a text using st.write')""")
                 
             base_html3 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -238,9 +238,9 @@ if st.session_state.page == "Home":
                 placeholder42.error('Error')
             else:
                 st.code("""st.success("Success")
-    st.info('Information')
-    st.warning('Warning')
-    st.error('Error')""")
+st.info('Information')
+st.warning('Warning')
+st.error('Error')""")
                 
             base_html4 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -276,32 +276,32 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""st.balloons()
-    st.snow()
-                        
-    bar = st.progress(50)
-    time.sleep(3)
-    bar.progress(100)
-                        
-    st.toast('I am here...')
-                        
-    with st.spinner("Loading..."):
-        time.sleep(6)
-                        
-    try:
-        1 / 0
-    except ZeroDivisionError as e:
-        st.exception(e)""")
-            base_html5 = """
-            <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
-                <style>
-                .stApp {{
-                    background: linear-gradient(to right, #ff7e5f, #feb47b);
-                    color: white;
-                }}
-                </style>
-                {}
-            </div>
-            """
+st.snow()
+                    
+bar = st.progress(50)
+time.sleep(3)
+bar.progress(100)
+                    
+st.toast('I am here...')
+                    
+with st.spinner("Loading..."):
+    time.sleep(6)
+                    
+try:
+    1 / 0
+except ZeroDivisionError as e:
+    st.exception(e)""")
+        base_html5 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
             on15 = st.toggle("Activate features", key = '14')
             if on15:
                 with st.status("Downloading data..."):
@@ -313,12 +313,12 @@ if st.session_state.page == "Home":
                     time.sleep(1)
             else: 
                 st.code("""with st.status("Downloading data..."):
-        st.write("Searching for data...")
-        time.sleep(2)
-        st.write("Found URL.")
-        time.sleep(1)
-        st.write("Downloading data...")
-        time.sleep(1)""")
+    st.write("Searching for data...")
+    time.sleep(2)
+    st.write("Found URL.")
+    time.sleep(1)
+    st.write("Downloading data...")
+    time.sleep(1)""")
     
             togg = st.toggle("Activate features", key = 'togg')
             if togg:
@@ -327,8 +327,8 @@ if st.session_state.page == "Home":
                 st.write('This is  a text below divider')
             else: 
                 st.code("""st.write('This is a text above divider')
-    st.divider()
-    st.write('This is  a text below divider')""")
+st.divider()
+st.write('This is  a text below divider')""")
     
             st.write('Control Flow')
             on5 = st.toggle("Activate features", key = 'nn4')
@@ -343,8 +343,8 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""st.write("This will be executed")
-    st.stop()
-    st.write("This will not be executed")""")
+st.stop()
+st.write("This will not be executed")""")
             base_html6 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
                 <style>
@@ -388,19 +388,19 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""st.button("Click me")
-    st.download_button("Download", data="Hello, World!", file_name="hello.txt")
-    st.checkbox("I agree")
-    st.radio("Pick one", ["Option 1", "Option 2"])
-    st.selectbox("Pick one", ["Option A", "Option B"])
-    st.multiselect("Choose", ["Option 1", "Option 2", "Option 3"])
-    st.slider("Slide me", 0, 100)
-    st.select_slider("Pick one", options=["bad", "good", "excellent"])
-    st.color_picker("Pick a color")
-    st.toggle('Toggle')
-    picture = st.camera_input("Take a picture")
-    if picture:
-        st.image(picture)
-    st.link_button("Go to Google.com", "https://google.com")""")
+st.download_button("Download", data="Hello, World!", file_name="hello.txt")
+st.checkbox("I agree")
+st.radio("Pick one", ["Option 1", "Option 2"])
+st.selectbox("Pick one", ["Option A", "Option B"])
+st.multiselect("Choose", ["Option 1", "Option 2", "Option 3"])
+st.slider("Slide me", 0, 100)
+st.select_slider("Pick one", options=["bad", "good", "excellent"])
+st.color_picker("Pick a color")
+st.toggle('Toggle')
+picture = st.camera_input("Take a picture")
+if picture:
+    st.image(picture)
+st.link_button("Go to Google.com", "https://google.com")""")
     
             base_html7 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -433,11 +433,11 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""st.text_input("Enter some text")
-    st.number_input("Enter a number", min_value=0, max_value=10)
-    st.text_area("Enter a description")
-    st.date_input("Pick a date")
-    st.time_input("Pick a time")
-    st.file_uploader("Upload a file")""")
+st.number_input("Enter a number", min_value=0, max_value=10)
+st.text_area("Enter a description")
+st.date_input("Pick a date")
+st.time_input("Pick a time")
+st.file_uploader("Upload a file")""")
             base_html8 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
                 <style>
@@ -473,17 +473,17 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""with st.container():
-        st.write("This is inside a container")
-    
-    col1, col2 = st.columns(2)
-    col1.write("This is column 1")
-    col2.write("This is column 2")
-    
-    with st.expander("Expand me"):
-        st.write("This is hidden text")
-                        
-    with st.popover('Popover'):
-        st.write("This is hidden text")""")
+    st.write("This is inside a container")
+
+col1, col2 = st.columns(2)
+col1.write("This is column 1")
+col2.write("This is column 2")
+
+with st.expander("Expand me"):
+    st.write("This is hidden text")
+                    
+with st.popover('Popover'):
+    st.write("This is hidden text")""")
                 
             st.write('Media Elements')
             on12 = st.toggle("Activate features", key = 'nn11')
@@ -497,10 +497,10 @@ if st.session_state.page == "Home":
                 # st.video("path_to_video.mp4")
             else: 
                 st.code("""image = Image.open("path_to_image.jpg")
-    st.image(image, caption="Streamlit Logo")
-    
-    st.audio("path_to_audio.mp3")
-    st.video("path_to_video.mp4")""")
+st.image(image, caption="Streamlit Logo")
+
+st.audio("path_to_audio.mp3")
+st.video("path_to_video.mp4")""")
                 
             st.write('Session Elements')
             on13 = st.toggle("Activate features", key = 'nn12')
@@ -515,13 +515,13 @@ if st.session_state.page == "Home":
                 st.button("Increment", on_click=increment_counter, type='primary')
             else: 
                 st.code("""if 'counter' not in st.session_state:
-        st.session_state.counter = 0
-    
-    def increment_counter():
-        st.session_state.counter += 1
-    
-    st.write("Counter:", st.session_state.counter)
-    st.button("Increment", on_click=increment_counter)""")
+    st.session_state.counter = 0
+
+def increment_counter():
+    st.session_state.counter += 1
+
+st.write("Counter:", st.session_state.counter)
+st.button("Increment", on_click=increment_counter)""")
                 
         with col3:
             st.write('Streamlit Basic Functions')
@@ -542,16 +542,16 @@ if st.session_state.page == "Home":
     
             else:
                 st.code("""df = pd.DataFrame({
-    'Col1': [1, 2, 3, 4],
-    'Col2': [10, 20, 30, 40]
-    })
-    
-    st.dataframe(df)
-    st.data_editor(df, num_rows='dynamic')
-    st.table(df)
-    st.json({'key': 'value', 'key2': [1, 2, 3]})
-    st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
-    """)
+'Col1': [1, 2, 3, 4],
+'Col2': [10, 20, 30, 40]
+})
+
+st.dataframe(df)
+st.data_editor(df, num_rows='dynamic')
+st.table(df)
+st.json({'key': 'value', 'key2': [1, 2, 3]})
+st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+""")
                 st.write('Charts')
                 on10 = st.toggle("Activate features", key = 'nn9')
                 if on10:
@@ -613,61 +613,61 @@ if st.session_state.page == "Home":
                     st.map(map_data)
                 else:
                     st.code("""chart_data = pd.DataFrame(
-        np.random.randn(20, 3),
-        columns=['a', 'b', 'c']
-    )
-    
-    st.line_chart(chart_data)
-    st.area_chart(chart_data)
-    st.bar_chart(chart_data)
-    
-    # Altair
-    c = alt.Chart(chart_data).mark_circle().encode(
-        x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
-    )
-    st.altair_chart(c)
-    
-    # Matplotlib
-    fig, ax = plt.subplots()
-    ax.scatter(chart_data['a'], chart_data['b'])
-    st.pyplot(fig)
-    
-    # Plotly
-    fig = px.scatter(chart_data, x='a', y='b', size='c', color='c')
-    st.plotly_chart(fig)
-    
-    # Bokeh
-    from bokeh.plotting import figure
-    from bokeh.io import output_file, show
-    
-    p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
-    p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
-    st.bokeh_chart(p)
-    
-    # Pydeck
-    import pydeck as pdk
-    
-    layer = pdk.Layer(
-        'ScatterplotLayer',
-        chart_data,
-        get_position='[a, b]',
-        get_radius=100,
-        get_color='[200, 30, 0, 160]',
-    )
-    view_state = pdk.ViewState(
-        latitude=0,
-        longitude=0,
-        zoom=1,
-        pitch=50,
-    )
-    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
-    
-    # Map
-    map_data = pd.DataFrame(
-        np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-        columns=['lat', 'lon']
-    )
-    st.map(map_data)""")
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c']
+)
+
+st.line_chart(chart_data)
+st.area_chart(chart_data)
+st.bar_chart(chart_data)
+
+# Altair
+c = alt.Chart(chart_data).mark_circle().encode(
+    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
+)
+st.altair_chart(c)
+
+# Matplotlib
+fig, ax = plt.subplots()
+ax.scatter(chart_data['a'], chart_data['b'])
+st.pyplot(fig)
+
+# Plotly
+fig = px.scatter(chart_data, x='a', y='b', size='c', color='c')
+st.plotly_chart(fig)
+
+# Bokeh
+from bokeh.plotting import figure
+from bokeh.io import output_file, show
+
+p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
+p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
+st.bokeh_chart(p)
+
+# Pydeck
+import pydeck as pdk
+
+layer = pdk.Layer(
+    'ScatterplotLayer',
+    chart_data,
+    get_position='[a, b]',
+    get_radius=100,
+    get_color='[200, 30, 0, 160]',
+)
+view_state = pdk.ViewState(
+    latitude=0,
+    longitude=0,
+    zoom=1,
+    pitch=50,
+)
+st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+
+# Map
+map_data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon']
+)
+st.map(map_data)""")
                 
                 st.write('Caching')
                 on11 = st.toggle("Activate features", key = '10')
@@ -689,20 +689,20 @@ if st.session_state.page == "Home":
                     st.write(result)  
                 else: 
                     st.code("""@st.cache_data
-    def load_data():
-        time.sleep(3)
-        return {"data": "sample"}
-    
-    data = load_data()
-    st.write(data)
-    
-    @st.cache_resource
-    def expensive_computation(x):
-        time.sleep(3)
-        return x * x
-    
-    result = expensive_computation(10)
-    st.write(result) """)
+def load_data():
+    time.sleep(3)
+    return {"data": "sample"}
+
+data = load_data()
+st.write(data)
+
+@st.cache_resource
+def expensive_computation(x):
+    time.sleep(3)
+    return x * x
+
+result = expensive_computation(10)
+st.write(result) """)
                 
                 st.write('Layout and Containers')
                 on14 = st.toggle("Activate features", key = '13')
@@ -720,14 +720,14 @@ if st.session_state.page == "Home":
                 else: 
                     st.code("""Section1, Section2, Section3 = st.tabs(["Section1", "Section2", "Section3"])
     
-    with Section1:
-        st.header("Section1")
-    
-    with Section2:
-        st.header("Section2")
-    
-    with Section3:
-        st.header("Section3")""")
+with Section1:
+    st.header("Section1")
+
+with Section2:
+    st.header("Section2")
+
+with Section3:
+    st.header("Section3")""")
                 
                 on16 = st.toggle("Activate features", key = '15')
                 if on16:
@@ -740,12 +740,12 @@ if st.session_state.page == "Home":
                             st.write("slider", slider_val, "checkbox", checkbox_val)
                 else: 
                     st.code("""with st.form("my_form"):
-        slider_val = st.slider("Form slider")
-        checkbox_val = st.checkbox("Form checkbox")
-    
-        submitted = st.form_submit_button("Submit")
-        if submitted:
-            st.write("slider", slider_val, "checkbox", checkbox_val)""")
+    slider_val = st.slider("Form slider")
+    checkbox_val = st.checkbox("Form checkbox")
+
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("slider", slider_val, "checkbox", checkbox_val)""")
     
                 st.write('Database')  
                 st.code("""
