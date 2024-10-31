@@ -4,6 +4,7 @@ import pandas as pd
 import annotated_text 
 from streamlit_card import card 
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from annotated_text import annotation
 from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.buy_me_a_coffee import button
