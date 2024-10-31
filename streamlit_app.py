@@ -1161,7 +1161,6 @@ with tab3:
             st.write("You have a balance of both traits, adapting to different situations.")
     
         # Additional interactive components
-        st.image("https://source.unsplash.com/800x400/?people,social", use_column_width=True)
         st.balloons()  # Add balloons effect for fun!
 
 
