@@ -1159,7 +1159,7 @@ with tab3:
             st.write("You prefer solitude or small gatherings and enjoy deep conversations.")
         else:
             st.write("You have a balance of both traits, adapting to different situations.")
-        time.sleep(6)
+        time.sleep(4)
         st.toast('You can try again🤗')
 
 
