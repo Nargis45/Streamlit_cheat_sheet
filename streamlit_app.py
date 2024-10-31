@@ -118,3 +118,21 @@ import streamlit as st""")
 
         with st.expander("Database Connection"):
             st.help(st.cache_data)
+
+    with col2:
+        st.write('Streamlit Basic Functions')
+        st.write('Text Elements')
+
+        base_html = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+
+        on = st.toggle("Activate features")
