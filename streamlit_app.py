@@ -7,10 +7,11 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(to right, #185a9a ,#43cea3);
-        color: white;
+        background: linear-gradient(to right, #a8c8e2, #d6e9e5);
+        color: black;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
