@@ -26,7 +26,7 @@ st.markdown(
 
 
 #tabs
-listTabs = ["Basic Functions", "Streamlit Elements", "Project"]
+listTabs = ["Basic Functions", "Streamlit Elements", "Personality Test"]
 tab1, tab2, tab3= st.tabs(listTabs)
 with tab1:
     col1, col2, col3= st.columns([4,5,4])
