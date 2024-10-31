@@ -1084,7 +1084,99 @@ with tab2:
                         }
                     )
 with tab3:
-    st.write('hello')
+
+    # Define questions and options
+    questions = [
+        "How do you feel in large social gatherings?",
+        "Do you prefer to spend your free time alone?",
+        "How do you react when meeting new people?",
+        "What energizes you the most?",
+        "How do you feel after spending a day alone?",
+        "Do you often seek out social events?",
+        "Do you enjoy deep conversations with a few people?",
+        "Do you feel drained after socializing for long periods?",
+    ]
+    
+    options = [
+        ["Excited", "Neutral", "Overwhelmed"],  # Q1
+        ["Yes", "Sometimes", "No"],             # Q2
+        ["I love it!", "I'm okay with it", "I prefer to avoid it"],  # Q3
+        ["Socializing", "Reading", "Both"],     # Q4
+        ["Refreshed", "Neutral", "Drained"],     # Q5
+        ["Always", "Occasionally", "Rarely"],   # Q6
+        ["Absolutely", "Depends", "Not really"], # Q7
+        ["Yes", "Sometimes", "No"],             # Q8
+    ]
+    
+    # Scoring for each personality type
+    scores = {
+        "Extrovert": 0,
+        "Introvert": 0,
+        "Ambivert": 0,
+    }
+    
+    # Define scoring based on responses
+    def calculate_scores(responses):
+        for response in responses:
+            if response == "Excited":
+                scores["Extrovert"] += 1
+            elif response == "Neutral":
+                scores["Ambivert"] += 1
+            elif response == "Overwhelmed":
+                scores["Introvert"] += 1
+            elif response == "Yes":
+                scores["Introvert"] += 1
+            elif response == "Sometimes":
+                scores["Ambivert"] += 1
+            elif response == "No":
+                scores["Extrovert"] += 1
+            elif response == "I love it!":
+                scores["Extrovert"] += 1
+            elif response == "I'm okay with it":
+                scores["Ambivert"] += 1
+            elif response == "I prefer to avoid it":
+                scores["Introvert"] += 1
+            elif response == "Socializing":
+                scores["Extrovert"] += 1
+            elif response == "Reading":
+                scores["Introvert"] += 1
+            elif response == "Both":
+                scores["Ambivert"] += 1
+            elif response == "Refreshed":
+                scores["Extrovert"] += 1
+            elif response == "Drained":
+                scores["Introvert"] += 1
+            elif response == "Always":
+                scores["Extrovert"] += 1
+            elif response == "Occasionally":
+                scores["Ambivert"] += 1
+            elif response == "Rarely":
+                scores["Introvert"] += 1
+            elif response == "Absolutely":
+                scores["Extrovert"] += 1
+            elif response == "Depends":
+                scores["Ambivert"] += 1
+            elif response == "Not really":
+                scores["Introvert"] += 1
+    
+    # Streamlit app layout
+    st.title("Personality Quiz: Extrovert, Introvert, or Ambivert?")
+    st.header("Answer the following questions:")
+    
+    responses = []
+    for i, question in enumerate(questions):
+        response = st.radio(question, options[i], key=i)
+        responses.append(response)
+    
+    # Submit button
+    if st.button("Submit"):
+        calculate_scores(responses)
+        # Determine personality type
+        personality_type = max(scores, key=scores.get)
+        st.write(f"Your personality type is: **{personality_type}**")
+        st.write("Scores breakdown:")
+        st.write(scores)
+
 
 
 footer="""<style>
