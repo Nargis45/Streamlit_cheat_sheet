@@ -3,6 +3,6 @@ matplotlib==3.6.3
 plotly==5.14.1
 TIME-python
 streamlit_extras
-from annotated_text import annotation
+
 
 
