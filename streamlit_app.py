@@ -4,7 +4,6 @@ import pandas as pd
 import annotated_text 
 from streamlit_card import card 
 from annotated_text import annotation
-from screen_size_component import get_screen_size
 from streamlit_extras.stylable_container import stylable_container
 
 st.set_page_config(layout="wide")
@@ -1074,56 +1073,6 @@ with tab2:
                             }
                         }
                     )
-    with col3:
-        st.write('Get Screen and Window size dynamically')
-        x9 = st.toggle("See code", key = 'x9')
-        if x9:  
-            with st.echo():  
-                location_json_str = get_screen_size()
-                if location_json_str != '':
-                    
-                    if isinstance(location_json_str, str):
-                        location_json = json.loads(location_json_str)
-
-                    else:
-                        location_json = location_json_str
-
-                    portwidth = location_json['screenWidth']
-                    portheight = location_json['screenHeight']
-                    windowwidth = location_json['windowWidth']
-                    windowheight = location_json['windowHeight']
-                    st.write('ScreenWidth',portwidth)
-                    st.write('ScreenHeight',portheight)
-                    st.write('WindowWidth',windowwidth)
-                    st.write('WindowHeight',windowheight)
-                else: 
-                    portwidth = streamlit_js_eval(js_expressions='screen.width', key='SCR')
-                    portheight = streamlit_js_eval(js_expressions='screen.height', key='SCR1')
-                    st.write(portwidth)
-                    st.write(portheight)
-        else: 
-            location_json_str = get_screen_size()
-            if location_json_str != '':
-                
-                if isinstance(location_json_str, str):
-                    location_json = json.loads(location_json_str)
-
-                else:
-                    location_json = location_json_str
-
-                portwidth = location_json['screenWidth']
-                portheight = location_json['screenHeight']
-                windowwidth = location_json['windowWidth']
-                windowheight = location_json['windowHeight']
-                st.write('ScreenWidth',portwidth)
-                st.write('ScreenHeight',portheight)
-                st.write('WindowWidth',windowwidth)
-                st.write('WindowHeight',windowheight)
-            else: 
-                portwidth = streamlit_js_eval(js_expressions='screen.width', key='SCR')
-                portheight = streamlit_js_eval(js_expressions='screen.height', key='SCR1')
-                st.write(portwidth)
-                st.write(portheight)
 
 
 
