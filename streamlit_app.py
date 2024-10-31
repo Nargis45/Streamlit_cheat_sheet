@@ -1149,7 +1149,17 @@ with tab3:
         
         st.success(f"Your personality type is: **{personality_type}** {emoji}")
         st.write("Scores breakdown:")
-        st.write(scores)
+        fig, ax = plt.subplots()
+        ax.bar(scores.keys(), scores.values(), color=['#FF9999', '#66B3FF', '#99FF99'])
+        ax.set_ylabel("Scores")
+        ax.set_title("Personality Type Scores")
+        ax.set_ylim(0, max(scores.values()) + 1)  # Set y-axis limit for better visibility
+    
+        # Add data labels on bars
+        for i, score in enumerate(scores.values()):
+            ax.text(i, score + 0.1, str(score), ha='center')
+    
+        st.pyplot(fig)
     
         # Additional insights
         st.subheader("Insights:")
