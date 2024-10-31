@@ -169,7 +169,7 @@ st.write('This is a text using st.write')""")
 
         on3 = st.toggle("Activate features", key = 'nn2')
 
-placeholder2 = st.empty()
+        placeholder2 = st.empty()
         placeholder22 = st.empty()
         placeholder32 = st.empty()
         placeholder42 = st.empty()
