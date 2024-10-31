@@ -34,7 +34,7 @@ st.markdown(
 
 #tabs
 listTabs = ["Streamlit Basic Functions", "Streamlit Elements", "Personality Test Project"]
-tab1, tab2, tab3= st.tabs(listTabs])
+tab1, tab2, tab3= st.tabs([listTabs])
 with tab1:
     col1, col2, col3= st.columns([4,5,4])
     with col1:
