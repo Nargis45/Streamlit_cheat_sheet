@@ -5,6 +5,8 @@ TIME-python
 streamlit_extras
 st-annotated-text
 streamlit-card
+bokeh
+
 
 
 
