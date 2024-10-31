@@ -24,8 +24,8 @@ st.markdown(
 
 
 #tabs
-listTabs = ["Cheat Sheet", "Designs"]
-tab1, tab2= st.tabs(listTabs)
+listTabs = ["Basic Functions", "Streamlit Elements", "Designs]
+tab1, tab2, tab3= st.tabs(listTabs)
 with tab1:
     col1, col2, col3= st.columns([4,5,4])
     with col1:
@@ -1083,6 +1083,8 @@ with tab2:
                             }
                         }
                     )
+with tab3:
+    st.write('hello')
 
 
 footer="""<style>
