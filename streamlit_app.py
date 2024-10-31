@@ -1150,7 +1150,7 @@ with tab3:
             emoji = "⚖️"
         
         st.success(f"Your personality type is: **{personality_type}** {emoji}")
-        st.write("Scores breakdown:")
+        st.subheader("Scores breakdown:")
         fig = go.Figure(data=[
         go.Bar(
             x=list(scores.keys()),
