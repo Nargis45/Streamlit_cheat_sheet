@@ -1054,7 +1054,7 @@ if st.session_state.page == "Home":
                 with st.echo():
                     annotated_text.annotated_text( 
                     annotation("Streamlit", color='#07a631'), 
-                    ("is", "so", color = '#ADD8E6'),   
+                    annotation("is", "so", color = '#ADD8E6'),   
                         
                     annotation("COOL", border='3px groove yellow'), 
                 ) 
