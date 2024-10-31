@@ -1160,9 +1160,7 @@ with tab3:
         else:
             st.write("You have a balance of both traits, adapting to different situations.")
     
-        # Additional interactive components
-        st.balloons()  # Add balloons effect for fun!
-
+        st.toast('You can try again🤗')
 
 
 
