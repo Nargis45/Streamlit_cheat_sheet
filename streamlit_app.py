@@ -24,16 +24,17 @@ st.markdown(
 # sidebar
 st.sidebar.title("Navigation")
 
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
+    
 if st.sidebar.button("Home"):
-    page = "Home"
-elif st.sidebar.button("About"):
-    page = "About"
-elif st.sidebar.button("Contact"):
-    page = "Contact"
-else:
-    page = "Home"  # Default page
+    st.session_state.page = "Home"
+if st.sidebar.button("About"):
+    st.session_state.page = "About"
+if st.sidebar.button("Contact"):
+    st.session_state.page = "Contact"
 
-if page == "Home":
+if st.session_state.page == "Home":
     #tabs
     listTabs = ["Cheat Sheet", "Designs"]
     tab1, tab2= st.tabs(listTabs)
@@ -1087,12 +1088,12 @@ if page == "Home":
                                 }
                             }
                         )
-elif page == "About":
+elif st.session_state.page == "About":
     st.title("About Page")
     st.write("This is the About Page.")
     st.write("You can include information about your application here.")
     
-elif page == "Contact":
+elif st.session_state.page == "Contact":
     st.title("Contact Page")
     st.write("This is the Contact Page.")
     st.write("You can provide contact information or a contact form here.")
