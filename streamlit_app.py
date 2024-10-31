@@ -706,27 +706,27 @@ if st.session_state.page == "Home":
                 st.write('Layout and Containers')
                 on14 = st.toggle("Activate features", key = '13')
                 if on14:
-                    tab1, tab2, tab3 = st.tabs(["tab1", "tab2", "tab3"])
+                    Section1, Section2, Section3 = st.tabs(["Section1", "Section2", "Section3"])
     
-                    with tab1:
-                        st.header("tab1")
+                    with Section1:
+                        st.header("Section1")
     
-                    with tab2:
-                        st.header("tab2")
+                    with Section2:
+                        st.header("Section2")
     
-                    with tab3:
-                        st.header("tab3")
+                    with Section3:
+                        st.header("Section3")
                 else: 
-                    st.code("""tab1, tab2, tab3 = st.tabs(["tab1", "tab2", "tab3"])
+                    st.code("""Section1, Section2, Section3 = st.tabs(["Section1", "Section2", "Section3"])
     
-    with tab1:
-        st.header("tab1")
+    with Section1:
+        st.header("Section1")
     
-    with tab2:
-        st.header("tab2")
+    with Section2:
+        st.header("Section2")
     
-    with tab3:
-        st.header("tab3")""")
+    with Section3:
+        st.header("Section3")""")
                 
                 on16 = st.toggle("Activate features", key = '15')
                 if on16:
