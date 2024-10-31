@@ -1125,7 +1125,7 @@ with tab3:
                 scores["Introvert"] += 1
     
     # Streamlit app layout
-    st.title("🌟 Personality Quiz: Are You an Extrovert, Introvert, or Ambivert? 🌟")
+    st.title("🌟 Personality Quiz: Are You an Extrovert, Introvert, or Ambivert?")
     st.header("Answer the following questions:")
     
     responses = []
