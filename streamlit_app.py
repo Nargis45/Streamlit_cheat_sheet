@@ -1084,7 +1084,6 @@ with tab2:
                         }
                     )
 with tab3:
-
     # Define questions and options
     questions = [
         "How do you feel in large social gatherings?",
