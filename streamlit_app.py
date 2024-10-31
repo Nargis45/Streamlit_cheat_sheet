@@ -5,6 +5,8 @@ import numpy as np
 import random
 import annotated_text 
 from streamlit_card import card 
+import altair as alt
+import plotly.express as px
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from annotated_text import annotation
