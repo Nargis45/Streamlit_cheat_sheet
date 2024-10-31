@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import pandas as pd
+import annotated_text 
 from annotated_text import annotation
 from streamlit_extras.stylable_container import stylable_container
 
