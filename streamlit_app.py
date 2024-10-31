@@ -1,6 +1,16 @@
 import streamlit as st
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+st.set_page_config(layout="wide")
+
+st.title("All about Streamlit :coffee: ")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(to right, #185a9a ,#43cea3);
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
 )
