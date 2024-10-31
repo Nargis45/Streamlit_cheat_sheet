@@ -1084,6 +1084,9 @@ with tab2:
                         }
                     )
 with tab3:
+    # Set page configuration
+    st.set_page_config(page_title="Personality Quiz", layout="wide")
+    
     # Define questions and options
     questions = [
         "How do you feel in large social gatherings?",
@@ -1097,14 +1100,14 @@ with tab3:
     ]
     
     options = [
-        ["Excited", "Neutral", "Overwhelmed"],  # Q1
-        ["Yes", "Sometimes", "No"],             # Q2
-        ["I love it!", "I'm okay with it", "I prefer to avoid it"],  # Q3
-        ["Socializing", "Reading", "Both"],     # Q4
-        ["Refreshed", "Neutral", "Drained"],     # Q5
-        ["Always", "Occasionally", "Rarely"],   # Q6
-        ["Absolutely", "Depends", "Not really"], # Q7
-        ["Yes", "Sometimes", "No"],             # Q8
+        ["Excited 😄", "Neutral 😐", "Overwhelmed 😰"],  # Q1
+        ["Yes 🙋‍♂️", "Sometimes 🤔", "No 🙅‍♂️"],         # Q2
+        ["I love it! 🎉", "I'm okay with it 🤷‍♂️", "I prefer to avoid it 🚫"],  # Q3
+        ["Socializing 🥳", "Reading 📚", "Both ⚖️"],      # Q4
+        ["Refreshed 🌟", "Neutral 😌", "Drained 😩"],       # Q5
+        ["Always 🙌", "Occasionally 🤗", "Rarely 🙈"],     # Q6
+        ["Absolutely 💯", "Depends 🤷", "Not really 🙁"],  # Q7
+        ["Yes 😥", "Sometimes 🤷‍♀️", "No 👍"],            # Q8
     ]
     
     # Scoring for each personality type
@@ -1117,49 +1120,15 @@ with tab3:
     # Define scoring based on responses
     def calculate_scores(responses):
         for response in responses:
-            if response == "Excited":
+            if response in ["Excited 😄", "I love it! 🎉", "Socializing 🥳", "Refreshed 🌟", "Always 🙌", "Absolutely 💯"]:
                 scores["Extrovert"] += 1
-            elif response == "Neutral":
+            elif response in ["Neutral 😐", "Sometimes 🤔", "I'm okay with it 🤷‍♂️", "Both ⚖️", "Neutral 😌", "Occasionally 🤗", "Depends 🤷‍♀️", "Sometimes 🤷‍♀️"]:
                 scores["Ambivert"] += 1
-            elif response == "Overwhelmed":
-                scores["Introvert"] += 1
-            elif response == "Yes":
-                scores["Introvert"] += 1
-            elif response == "Sometimes":
-                scores["Ambivert"] += 1
-            elif response == "No":
-                scores["Extrovert"] += 1
-            elif response == "I love it!":
-                scores["Extrovert"] += 1
-            elif response == "I'm okay with it":
-                scores["Ambivert"] += 1
-            elif response == "I prefer to avoid it":
-                scores["Introvert"] += 1
-            elif response == "Socializing":
-                scores["Extrovert"] += 1
-            elif response == "Reading":
-                scores["Introvert"] += 1
-            elif response == "Both":
-                scores["Ambivert"] += 1
-            elif response == "Refreshed":
-                scores["Extrovert"] += 1
-            elif response == "Drained":
-                scores["Introvert"] += 1
-            elif response == "Always":
-                scores["Extrovert"] += 1
-            elif response == "Occasionally":
-                scores["Ambivert"] += 1
-            elif response == "Rarely":
-                scores["Introvert"] += 1
-            elif response == "Absolutely":
-                scores["Extrovert"] += 1
-            elif response == "Depends":
-                scores["Ambivert"] += 1
-            elif response == "Not really":
+            else:
                 scores["Introvert"] += 1
     
     # Streamlit app layout
-    st.title("Personality Quiz: Extrovert, Introvert, or Ambivert?")
+    st.title("🌟 Personality Quiz: Are You an Extrovert, Introvert, or Ambivert? 🌟")
     st.header("Answer the following questions:")
     
     responses = []
@@ -1172,9 +1141,32 @@ with tab3:
         calculate_scores(responses)
         # Determine personality type
         personality_type = max(scores, key=scores.get)
-        st.write(f"Your personality type is: **{personality_type}**")
+        
+        # Show result with emojis
+        if personality_type == "Extrovert":
+            emoji = "🎉"
+        elif personality_type == "Introvert":
+            emoji = "🌙"
+        else:
+            emoji = "⚖️"
+        
+        st.success(f"Your personality type is: **{personality_type}** {emoji}")
         st.write("Scores breakdown:")
         st.write(scores)
+    
+        # Additional insights
+        st.subheader("Insights:")
+        if personality_type == "Extrovert":
+            st.write("You thrive in social situations and enjoy being around people!")
+        elif personality_type == "Introvert":
+            st.write("You prefer solitude or small gatherings and enjoy deep conversations.")
+        else:
+            st.write("You have a balance of both traits, adapting to different situations.")
+    
+        # Additional interactive components
+        st.image("https://source.unsplash.com/800x400/?people,social", use_column_width=True)
+        st.balloons()  # Add balloons effect for fun!
+
 
 
 
