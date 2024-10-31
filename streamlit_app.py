@@ -168,3 +168,45 @@ st.write('This is a text using st.write')""")
         """
 
         on3 = st.toggle("Activate features", key = 'nn2')
+
+placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+        placeholder42 = st.empty()
+
+        if on3:
+            placeholder2.markdown('*This* is **a** ***Markdown***')
+            placeholder22.caption('This is a caption')
+            placeholder32.latex(r'e^{i\pi} + 1 = 0')
+            placeholder42.code("print('Hello, Streamlit!')")
+            with st.echo():
+                st.write('Hello, Streamlit!')
+
+        else:
+            st.code("""st.markdown('*This* is **a** ***Markdown***')
+st.caption('This is a caption')
+st.latex(r'e^{i\pi} + 1 = 0')
+st.code("print('Hello, Streamlit!')")
+with st.echo():
+    st.write('Hello, Streamlit!')""")
+            
+            base_html2 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+        st.write('Status Elements')
+        on2 = st.toggle("Activate features", key = 'nn')
+
+        placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+        placeholder42 = st.empty()
+
+
