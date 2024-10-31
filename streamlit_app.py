@@ -314,3 +314,90 @@ st.write('This is  a text below divider')""")
 
         placeholder2 = st.empty()
         placeholder32 = st.empty()
+
+        if on5:
+            placeholder2.write("This will be executed")
+            st.stop()
+            placeholder32.write("This will not be executed")
+
+        else:
+            st.code("""st.write("This will be executed")
+st.stop()
+st.write("This will not be executed")""")
+        base_html6 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+
+        st.write('Input Widgets')
+        on6 = st.toggle("Activate features", key = 'nn5')
+
+        placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+        placeholder42 = st.empty()
+        placeholder52 = st.empty()
+        placeholder62 = st.empty()
+        placeholder72 = st.empty()
+        placeholder82 = st.empty()
+        placeholder92 = st.empty()
+
+        if on6:
+            placeholder2.button("Click me", type='primary')
+            placeholder22.download_button("Download", data="Hello, World!", file_name="hello.txt", type='secondary')
+            placeholder32.checkbox("I agree")
+            placeholder42.radio("Pick one", ["Option 1", "Option 2"])
+            placeholder52.selectbox("Pick one", ["Option A", "Option B"])
+            placeholder62.multiselect("Choose", ["Option 1", "Option 2", "Option 3"])
+            placeholder72.slider("Slide me", 0, 100)
+            placeholder82.select_slider("Pick one", options=["bad", "good", "excellent"])
+            placeholder92.color_picker("Pick a color")
+            st.toggle('Toggle')
+            picture = st.camera_input("Take a picture")
+            if picture:
+                st.image(picture)
+            st.link_button("Go to Google.com", "https://google.com")
+
+        else:
+            st.code("""st.button("Click me")
+st.download_button("Download", data="Hello, World!", file_name="hello.txt")
+st.checkbox("I agree")
+st.radio("Pick one", ["Option 1", "Option 2"])
+st.selectbox("Pick one", ["Option A", "Option B"])
+st.multiselect("Choose", ["Option 1", "Option 2", "Option 3"])
+st.slider("Slide me", 0, 100)
+st.select_slider("Pick one", options=["bad", "good", "excellent"])
+st.color_picker("Pick a color")
+st.toggle('Toggle')
+picture = st.camera_input("Take a picture")
+if picture:
+    st.image(picture)
+st.link_button("Go to Google.com", "https://google.com")""")
+
+        base_html7 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+
+        on7 = st.toggle("Activate features", key = 'nn6')
+
+        placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+        placeholder42 = st.empty()
+        placeholder52 = st.empty()
+        placeholder62 = st.empty()
