@@ -572,13 +572,13 @@ st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
                 fig = px.scatter(chart_data, x='a', y='b', color='c')
                 st.plotly_chart(fig)
 
-                # Bokeh
-                from bokeh.plotting import figure
-                from bokeh.io import output_file, show
+                # # Bokeh
+                # from bokeh.plotting import figure
+                # from bokeh.io import output_file, show
 
-                p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
-                p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
-                st.bokeh_chart(p)
+                # p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
+                # p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
+                # st.bokeh_chart(p)
 
                 # Pydeck
                 import pydeck as pdk
@@ -629,13 +629,13 @@ st.pyplot(fig)
 fig = px.scatter(chart_data, x='a', y='b', size='c', color='c')
 st.plotly_chart(fig)
 
-# Bokeh
-from bokeh.plotting import figure
-from bokeh.io import output_file, show
+# # Bokeh
+# from bokeh.plotting import figure
+# from bokeh.io import output_file, show
 
-p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
-p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
-st.bokeh_chart(p)
+# p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
+# p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
+# st.bokeh_chart(p)
 
 # Pydeck
 import pydeck as pdk
