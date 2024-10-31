@@ -1150,21 +1150,28 @@ with tab3:
         
         st.success(f"Your personality type is: **{personality_type}** {emoji}")
         st.write("Scores breakdown:")
-        fig, ax = plt.subplots(figsize=(5,3))  # Set size of the figure
-        ax.bar(scores.keys(), scores.values(), color=['#FF9999', '#66B3FF', '#99FF99'])
-        ax.set_ylabel("Scores")
-        ax.set_title("Personality Type Scores")
-        ax.set_ylim(0, max(scores.values()) + 1)  # Set y-axis limit for better visibility
+        fig = go.Figure(data=[
+        go.Bar(
+            x=list(scores.keys()),
+            y=list(scores.values()),
+            marker_color=['#FF9999', '#66B3FF', '#99FF99'],
+            text=list(scores.values()),
+            textposition='auto'
+        )
+    ])
     
-        # Add data labels on bars
-        for i, score in enumerate(scores.values()):
-            ax.text(i, score + 0.1, str(score), ha='center')
+        fig.update_layout(
+            title="Personality Type Scores",
+            xaxis_title="Personality Type",
+            yaxis_title="Scores",
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            title_x=0.5,  # Center the title
+            height=400,
+            width=600,
+            margin=dict(l=40, r=40, t=40, b=40)
+        )
     
-        # Make the background transparent
-        plt.gca().patch.set_alpha(0)  # Set axes background transparent
-        fig.patch.set_alpha(0)  # Set figure background transparent
-    
-        st.pyplot(fig)
+        st.plotly_chart(fig, use_container_width=True)
     
         # Additional insights
         st.subheader("Insights:")
