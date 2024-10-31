@@ -401,3 +401,741 @@ st.link_button("Go to Google.com", "https://google.com")""")
         placeholder42 = st.empty()
         placeholder52 = st.empty()
         placeholder62 = st.empty()
+
+        if on7:
+            placeholder2.text_input("Enter some text")
+            placeholder22.number_input("Enter a number", min_value=0, max_value=10)
+            placeholder32.text_area("Enter a description")
+            placeholder42.date_input("Pick a date")
+            placeholder52.time_input("Pick a time")
+            placeholder62.file_uploader("Upload a file")
+
+        else:
+            st.code("""st.text_input("Enter some text")
+st.number_input("Enter a number", min_value=0, max_value=10)
+st.text_area("Enter a description")
+st.date_input("Pick a date")
+st.time_input("Pick a time")
+st.file_uploader("Upload a file")""")
+        base_html8 = """
+        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+            <style>
+            .stApp {{
+                background: linear-gradient(to right, #ff7e5f, #feb47b);
+                color: white;
+            }}
+            </style>
+            {}
+        </div>
+        """
+
+        st.write('Layout and Containers')
+        on8 = st.toggle("Activate features", key = 'nn7')
+
+        placeholder2 = st.empty()
+        placeholder22 = st.empty()
+        placeholder32 = st.empty()
+
+        if on8:
+            with placeholder2.container():
+                placeholder2.write("This is inside a container")
+
+            col1, col2 = placeholder22.columns(2)
+            col1.write("This is column 1")
+            col2.write("This is column 2")
+
+            with st.expander("Expand me"):
+                st.write("This is hidden text")
+            
+            with st.popover('Popover'):
+                st.write("This is hidden text")
+
+        else:
+            st.code("""with st.container():
+    st.write("This is inside a container")
+
+col1, col2 = st.columns(2)
+col1.write("This is column 1")
+col2.write("This is column 2")
+
+with st.expander("Expand me"):
+    st.write("This is hidden text")
+                    
+with st.popover('Popover'):
+    st.write("This is hidden text")""")
+            
+        st.write('Media Elements')
+        on12 = st.toggle("Activate features", key = 'nn11')
+        if on12:
+            from PIL import Image
+
+            image = Image.open(r"C:\Users\nasreenn\Desktop\azure-open-ai-embeddings-qna\code\pages\streamlit-logo.png")
+            st.image(image, caption="Streamlit Logo")
+
+            # st.audio("path_to_audio.mp3")
+            # st.video("path_to_video.mp4")
+        else: 
+            st.code("""image = Image.open("path_to_image.jpg")
+st.image(image, caption="Streamlit Logo")
+
+st.audio("path_to_audio.mp3")
+st.video("path_to_video.mp4")""")
+            
+        st.write('Session Elements')
+        on13 = st.toggle("Activate features", key = 'nn12')
+        if on13:
+            if 'counter' not in st.session_state:
+                st.session_state.counter = 0
+
+            def increment_counter():
+                st.session_state.counter += 1
+
+            st.write("Counter:", st.session_state.counter)
+            st.button("Increment", on_click=increment_counter, type='primary')
+        else: 
+            st.code("""if 'counter' not in st.session_state:
+    st.session_state.counter = 0
+
+def increment_counter():
+    st.session_state.counter += 1
+
+st.write("Counter:", st.session_state.counter)
+st.button("Increment", on_click=increment_counter)""")
+            
+    with col3:
+        st.write('Streamlit Basic Functions')
+
+        st.write('Data Display Elements')
+        on9 = st.toggle("Activate features", key = 'nn8')
+        if on9:
+            df = pd.DataFrame({
+                'Col1': [1, 2, 3, 4],
+                'Col2': [10, 20, 30, 40]
+            })
+
+            st.dataframe(df)
+            st.data_editor(df, num_rows='dynamic')
+            st.table(df)
+            st.json({'key': 'value', 'key2': [1, 2, 3]})
+            st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+
+        else:
+            st.code("""df = pd.DataFrame({
+'Col1': [1, 2, 3, 4],
+'Col2': [10, 20, 30, 40]
+})
+
+st.dataframe(df)
+st.data_editor(df, num_rows='dynamic')
+st.table(df)
+st.json({'key': 'value', 'key2': [1, 2, 3]})
+st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
+""")
+            st.write('Charts')
+            on10 = st.toggle("Activate features", key = 'nn9')
+            if on10:
+                chart_data = pd.DataFrame(
+                    np.random.randn(20, 3),
+                    columns=['a', 'b', 'c']
+                )
+
+                st.line_chart(chart_data)
+                st.area_chart(chart_data)
+                st.bar_chart(chart_data)
+
+                # Altair
+                c = alt.Chart(chart_data).mark_circle().encode(
+                    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
+                )
+                st.altair_chart(c)
+
+                # Matplotlib
+                fig, ax = plt.subplots()
+                ax.scatter(chart_data['a'], chart_data['b'])
+                st.pyplot(fig)
+
+                # Plotly
+                fig = px.scatter(chart_data, x='a', y='b', color='c')
+                st.plotly_chart(fig)
+
+                # Bokeh
+                from bokeh.plotting import figure
+                from bokeh.io import output_file, show
+
+                p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
+                p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
+                st.bokeh_chart(p)
+
+                # Pydeck
+                import pydeck as pdk
+
+                layer = pdk.Layer(
+                    'ScatterplotLayer',
+                    chart_data,
+                    get_position='[a, b]',
+                    get_radius=100,
+                    get_color='[200, 30, 0, 160]',
+                )
+                view_state = pdk.ViewState(
+                    latitude=0,
+                    longitude=0,
+                    zoom=1,
+                    pitch=50,
+                )
+                st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+
+                # Map
+                map_data = pd.DataFrame(
+                    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+                    columns=['lat', 'lon']
+                )
+                st.map(map_data)
+            else:
+                st.code("""chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c']
+)
+
+st.line_chart(chart_data)
+st.area_chart(chart_data)
+st.bar_chart(chart_data)
+
+# Altair
+c = alt.Chart(chart_data).mark_circle().encode(
+    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
+)
+st.altair_chart(c)
+
+# Matplotlib
+fig, ax = plt.subplots()
+ax.scatter(chart_data['a'], chart_data['b'])
+st.pyplot(fig)
+
+# Plotly
+fig = px.scatter(chart_data, x='a', y='b', size='c', color='c')
+st.plotly_chart(fig)
+
+# Bokeh
+from bokeh.plotting import figure
+from bokeh.io import output_file, show
+
+p = figure(title="simple line example", x_axis_label='x', y_axis_label='y')
+p.line(chart_data.index, chart_data['a'], legend_label="Temp.", line_width=2)
+st.bokeh_chart(p)
+
+# Pydeck
+import pydeck as pdk
+
+layer = pdk.Layer(
+    'ScatterplotLayer',
+    chart_data,
+    get_position='[a, b]',
+    get_radius=100,
+    get_color='[200, 30, 0, 160]',
+)
+view_state = pdk.ViewState(
+    latitude=0,
+    longitude=0,
+    zoom=1,
+    pitch=50,
+)
+st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+
+# Map
+map_data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon']
+)
+st.map(map_data)""")
+            
+            st.write('Caching')
+            on11 = st.toggle("Activate features", key = '10')
+            if on11: 
+                @st.cache_data
+                def load_data():
+                    time.sleep(3)
+                    return {"data": "sample"}
+
+                data = load_data()
+                st.write(data)
+
+                @st.cache_resource
+                def expensive_computation(x):
+                    time.sleep(3)
+                    return x * x
+
+                result = expensive_computation(10)
+                st.write(result)  
+            else: 
+                st.code("""@st.cache_data
+def load_data():
+    time.sleep(3)
+    return {"data": "sample"}
+
+data = load_data()
+st.write(data)
+
+@st.cache_resource
+def expensive_computation(x):
+    time.sleep(3)
+    return x * x
+
+result = expensive_computation(10)
+st.write(result) """)
+            
+            st.write('Layout and Containers')
+            on14 = st.toggle("Activate features", key = '13')
+            if on14:
+                tab1, tab2, tab3 = st.tabs(["tab1", "tab2", "tab3"])
+
+                with tab1:
+                    st.header("tab1")
+
+                with tab2:
+                    st.header("tab2")
+
+                with tab3:
+                    st.header("tab3")
+            else: 
+                st.code("""tab1, tab2, tab3 = st.tabs(["tab1", "tab2", "tab3"])
+
+with tab1:
+    st.header("tab1")
+
+with tab2:
+    st.header("tab2")
+
+with tab3:
+    st.header("tab3")""")
+            
+            on16 = st.toggle("Activate features", key = '15')
+            if on16:
+                with st.form("my_form"):
+                    slider_val = st.slider("Form slider")
+                    checkbox_val = st.checkbox("Form checkbox")
+
+                    submitted = st.form_submit_button("Submit")
+                    if submitted:
+                        st.write("slider", slider_val, "checkbox", checkbox_val)
+            else: 
+                st.code("""with st.form("my_form"):
+    slider_val = st.slider("Form slider")
+    checkbox_val = st.checkbox("Form checkbox")
+
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("slider", slider_val, "checkbox", checkbox_val)""")
+
+            st.write('Database')  
+            st.code("""Database Connection Pending...""")
+        
+## Designs
+with tab2:
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        x1 = st.toggle("See code", key = 'x1')
+        if x1:
+            with st.echo():
+                with stylable_container(
+                    key="click",
+                    css_styles="""
+                    button{
+                    background-color: #00b090;
+                    font-weight: bold;
+                    color: white;
+                    }
+                    """,
+        
+                
+                ):
+                    st.button("Click Me", key="click")
+        else: 
+            with stylable_container(
+                key="click",
+                css_styles="""
+                button{
+                background-color: #00b090;
+                font-weight: bold;
+                color: white;
+                }
+                """,
+    
+            
+            ):
+                st.button("Click Me", key="click")
+        
+        x2 = st.toggle("See code", key = 'x2')
+        if x2:
+            with st.echo():
+                with stylable_container(
+                    key="upload_file",
+                    css_styles="""
+                    button {
+                    background-color: #daae66;
+                    color: white;
+                    }
+                    div[data-testid="stFileUploader"]{
+                    }
+                    [data-testid='stFileUploader'] {
+                    width: max-content;
+                }
+                [data-testid='stFileUploader'] section {
+                    padding: 0;
+                    float: left;
+                }
+                [data-testid='stFileUploader'] section > input + div {
+                    display: none;
+                }
+                [data-testid='stFileUploader'] section + div {
+                    margin-top: 10%;
+                }
+                    """,
+                
+                ):
+                    st.file_uploader("", type=['pdf', 'txt', 'docx'], accept_multiple_files=True)
+        else:
+            with stylable_container(
+                    key="upload_file",
+                    css_styles="""
+                    button {
+                    background-color: #daae66;
+                    color: white;
+                    }
+                    div[data-testid="stFileUploader"]{
+                    }
+                    [data-testid='stFileUploader'] {
+                    width: max-content;
+                }
+                [data-testid='stFileUploader'] section {
+                    padding: 0;
+                    float: left;
+                }
+                [data-testid='stFileUploader'] section > input + div {
+                    display: none;
+                }
+                [data-testid='stFileUploader'] section + div {
+                    margin-top: 10%;
+                }
+                    """,
+                
+                ):
+                    st.file_uploader("", type=['pdf', 'txt', 'docx'], accept_multiple_files=True)
+
+        x3 = st.toggle("See code", key = 'x3')
+        if x3:
+            with st.echo():
+                with stylable_container(
+                key="text_input",
+                css_styles="""
+                div[data-testid="stTextInput"]{
+                width: 60%;
+                }
+                """,
+            
+                ):
+                    st.text_input("", placeholder="Type your message...")
+        else: 
+            with stylable_container(
+                key="text_input",
+                css_styles="""
+                div[data-testid="stTextInput"]{
+                width: 60%;
+                }
+                """,
+            
+            ):
+                st.text_input("", placeholder="Type your message...")
+
+        x4 = st.toggle("See code", key = 'x4')
+        if x4:
+            with st.echo():
+                st.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>', unsafe_allow_html=True)
+                st.markdown(
+                    f"""
+                        <p>Use Font Awesome Icons</p>
+                        <i class="fas fa-user" style="color:blue;"></i>
+                        <i class="fa fa-car" style="color:red;"></i>
+                        <i class="fa fa-spinner fa-spin" style="color:green;"></i>
+                        <i class="fa fa-circle-o-notch fa-spin" style="color:pink;"></i>
+                        <i class="fa fa-refresh fa-spin" style="color:brown;"></i>
+                        <i class="fa fa-cog fa-spin" style="color:yellow;"></i>
+                        <i class="fa fa-spinner fa-pulse"></i>
+                    """,
+                    unsafe_allow_html=True
+            )
+        else: 
+            st.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>', unsafe_allow_html=True)
+            st.markdown(
+            f"""
+                <p>Use Font Awesome Icons</p>
+                <i class="fas fa-user" style="color:blue;"></i>
+                <i class="fa fa-car" style="color:red;"></i>
+                <i class="fa fa-spinner fa-spin" style="color:green;"></i>
+                <i class="fa fa-circle-o-notch fa-spin" style="color:pink;"></i>
+                <i class="fa fa-refresh fa-spin" style="color:brown;"></i>
+                <i class="fa fa-cog fa-spin" style="color:yellow;"></i>
+                <i class="fa fa-spinner fa-pulse"></i>
+            """,
+            unsafe_allow_html=True
+        )
+    with col2:
+        st.write('Feedback Form:')
+        x5 = st.toggle("See code", key = 'x5')
+        if x5:
+            with st.echo():
+                with stylable_container(
+                    key="Feedback",
+                    css_styles="""
+                    button {
+                    background-color: #9000f7;
+                    color: white;
+                }
+                div[data-testid="stPopover"]{
+                    font-weight: bold;
+                    border-radius: 5px;
+                    white-space: nowrap;
+                }
+                """
+                ):
+                    with st.popover('Feedback'):
+                        with st.form(key='feedback_form', clear_on_submit =True):
+                                st.header(body="Feedback Form!")
+                                st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+                                overall_experience = st.radio('Overall Experience', ['😃', '🙂','😐','😕','😞'])
+                                feedback_options = st.multiselect("Feedback On Tabs:",["Basics", "Designs", "Application"])
+                                feedback_comment = st.text_input('Feedback Comment')
+                                submitted = st.form_submit_button('Submit', type = 'primary')
+        else: 
+            with stylable_container(
+                key="Feedback",
+                css_styles="""
+                button {
+                background-color: #9000f7;
+                color: white;
+            }
+             div[data-testid="stPopover"]{
+                font-weight: bold;
+                border-radius: 5px;
+                white-space: nowrap;
+            }
+            """
+            ):
+                with st.popover('Feedback'):
+                    with st.form(key='feedback_form', clear_on_submit =True):
+                            st.header(body="Feedback Form!")
+                            st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+                            overall_experience = st.radio('Overall Experience', ['😃', '🙂','😐','😕','😞'])
+                            feedback_options = st.multiselect("Feedback On Tabs:",["Basics", "Designs", "Application"])
+                            feedback_comment = st.text_input('Feedback Comment')
+                            submitted = st.form_submit_button('Submit', type = 'primary')
+
+        st.write('Dataframe:')
+        x6 = st.toggle("See code", key = 'x6')
+        if x6:
+            with st.echo():
+                @st.cache_data
+                def add_empty_row(df, index):
+                    empty_row = pd.DataFrame([[False, False, '', '']], columns=df.columns)
+                    return pd.concat([df.iloc[:index], empty_row, df.iloc[index:]]).reset_index(drop=True)
+
+                @st.cache_data
+                def delete_row(df, index):
+                    return df.drop(index).reset_index(drop=True)
+
+                df = pd.DataFrame({
+                        '➕': [False] * 4,
+                        '➖': [False] * 4,
+                        'Col1': ['1', '2', '3', '4'],
+                        'Col2': ['10', '20', '30', '40']
+                    })
+                if 'state_df' not in st.session_state:
+                    st.session_state.state_df = df.copy()
+
+                df = st.session_state.state_df
+
+                df = st.data_editor(df, column_config={
+                            "➕": st.column_config.CheckboxColumn(
+                            "➕",
+                            help="Add Row",
+                            default=False,
+                            ),
+                            "➖": st.column_config.CheckboxColumn(
+                            "➖",
+                            help="Remove Row",
+                            default=False,
+                            )}, num_rows='fixed', hide_index=True)
+
+                df1 = df.copy()
+
+                for index, row in df.iterrows():
+                    if row['➕'] == True:
+                        st.session_state.state_df = df1
+                        st.session_state.state_df.at[index, '➕'] = False
+                        st.session_state.state_df = add_empty_row(st.session_state.state_df, index)
+                        st.rerun()
+
+                for index, row in df.iterrows():
+                    if row['➖'] == True:
+                        st.session_state.state_df = df1
+                        st.session_state.state_df.at[index, '➖'] = False
+                        st.session_state.state_df = delete_row(st.session_state.state_df, index)
+                        st.rerun()
+        else: 
+            @st.cache_data
+            def add_empty_row(df, index):
+                empty_row = pd.DataFrame([[False, False, '', '']], columns=df.columns)
+                return pd.concat([df.iloc[:index], empty_row, df.iloc[index:]]).reset_index(drop=True)
+
+            @st.cache_data
+            def delete_row(df, index):
+                return df.drop(index).reset_index(drop=True)
+
+            df = pd.DataFrame({
+                    '➕': [False] * 4,
+                    '➖': [False] * 4,
+                    'Col1': ['1', '2', '3', '4'],
+                    'Col2': ['10', '20', '30', '40']
+                })
+            if 'state_df' not in st.session_state:
+                st.session_state.state_df = df.copy()
+
+            df = st.session_state.state_df
+
+            df = st.data_editor(df, column_config={
+                        "➕": st.column_config.CheckboxColumn(
+                        "➕",
+                        help="Add Row",
+                        default=False,
+                        ),
+                        "➖": st.column_config.CheckboxColumn(
+                        "➖",
+                        help="Remove Row",
+                        default=False,
+                        )}, num_rows='fixed', hide_index=True)
+
+            df1 = df.copy()
+
+            for index, row in df.iterrows():
+                if row['➕'] == True:
+                    st.session_state.state_df = df1
+                    st.session_state.state_df.at[index, '➕'] = False
+                    st.session_state.state_df = add_empty_row(st.session_state.state_df, index)
+                    st.rerun()
+
+            for index, row in df.iterrows():
+                if row['➖'] == True:
+                    st.session_state.state_df = df1
+                    st.session_state.state_df.at[index, '➖'] = False
+                    st.session_state.state_df = delete_row(st.session_state.state_df, index)
+                    st.rerun()
+        st.write('Annotation:')
+        x7 = st.toggle("See code", key = 'x7')
+        if x7:
+            with st.echo():
+                annotated_text.annotated_text( 
+                annotation("Streamlit", color='#07a631'), 
+                ("is", "so", 'blue'),   
+                    
+                annotation("COOL", border='3px groove yellow'), 
+            ) 
+        else: 
+            annotated_text.annotated_text( 
+            annotation("Streamlit", color='#07a631'), 
+            ("is", "so", 'blue'),   
+                
+            annotation("COOL", border='3px groove yellow'), 
+        ) 
+        st.write('Card:')
+        x8 = st.toggle("See code", key = 'x8')
+        if x8:  
+            with st.echo():  
+                card( 
+                title="Hello Users!", 
+                text="Click this card to redirect to Streamlit", 
+                image="https://raw.githubusercontent.com/Nargis99/iPlan/main/streamlit-logo.png", 
+                url="https://streamlit.io/", 
+            ) 
+        else: 
+                    card( 
+                        title="Hello Users!", 
+                        text="Click this card to redirect to Streamlit", 
+                        image="https://raw.githubusercontent.com/Nargis99/iPlan/main/streamlit-logo.png", 
+                        url="https://streamlit.io/", 
+                        styles={
+                            "card": {
+                                "width": "100%", # <- make the card use the width of its container, note that it will not resize the height of the card automatically
+                                "height": "300px" # <- if you want to set the card height to 300px
+                            }
+                        }
+                    )
+    with col3:
+        st.write('Get Screen and Window size dynamically')
+        x9 = st.toggle("See code", key = 'x9')
+        if x9:  
+            with st.echo():  
+                location_json_str = get_screen_size()
+                if location_json_str != '':
+                    
+                    if isinstance(location_json_str, str):
+                        location_json = json.loads(location_json_str)
+
+                    else:
+                        location_json = location_json_str
+
+                    portwidth = location_json['screenWidth']
+                    portheight = location_json['screenHeight']
+                    windowwidth = location_json['windowWidth']
+                    windowheight = location_json['windowHeight']
+                    st.write('ScreenWidth',portwidth)
+                    st.write('ScreenHeight',portheight)
+                    st.write('WindowWidth',windowwidth)
+                    st.write('WindowHeight',windowheight)
+                else: 
+                    portwidth = streamlit_js_eval(js_expressions='screen.width', key='SCR')
+                    portheight = streamlit_js_eval(js_expressions='screen.height', key='SCR1')
+                    st.write(portwidth)
+                    st.write(portheight)
+        else: 
+            location_json_str = get_screen_size()
+            if location_json_str != '':
+                
+                if isinstance(location_json_str, str):
+                    location_json = json.loads(location_json_str)
+
+                else:
+                    location_json = location_json_str
+
+                portwidth = location_json['screenWidth']
+                portheight = location_json['screenHeight']
+                windowwidth = location_json['windowWidth']
+                windowheight = location_json['windowHeight']
+                st.write('ScreenWidth',portwidth)
+                st.write('ScreenHeight',portheight)
+                st.write('WindowWidth',windowwidth)
+                st.write('WindowHeight',windowheight)
+            else: 
+                portwidth = streamlit_js_eval(js_expressions='screen.width', key='SCR')
+                portheight = streamlit_js_eval(js_expressions='screen.height', key='SCR1')
+                st.write(portwidth)
+                st.write(portheight)
+
+
+
+footer="""<style>
+.footer {
+left: 0;
+bottom: 0;
+width: 100%;
+color: black;
+text-align: center;
+z-index: 1;
+}
+
+</style>
+<div class="footer">
+<p style="font-size: 12px; ">Made with ❤️ by Nargis Nasreen</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
+button(username="sheet", floating=False, width=250,)
