@@ -499,27 +499,6 @@ st.image(image, caption="Streamlit Logo")
 st.audio("path_to_audio.mp3")
 st.video("path_to_video.mp4")""")
             
-        st.write('Session Elements')
-        on13 = st.toggle("Activate features", key = 'nn12')
-        if on13:
-            if 'counter' not in st.session_state:
-                st.session_state.counter = 0
-
-            def increment_counter():
-                st.session_state.counter += 1
-
-            st.write("Counter:", st.session_state.counter)
-            st.button("Increment", on_click=increment_counter, type='primary')
-        else: 
-            st.code("""if 'counter' not in st.session_state:
-st.session_state.counter = 0
-
-def increment_counter():
-st.session_state.counter += 1
-
-st.write("Counter:", st.session_state.counter)
-st.button("Increment", on_click=increment_counter)""")
-            
     with col3:
         st.write('Streamlit Basic Functions')
 
@@ -727,6 +706,27 @@ checkbox_val = st.checkbox("Form checkbox")
 submitted = st.form_submit_button("Submit")
 if submitted:
     st.write("slider", slider_val, "checkbox", checkbox_val)""")
+
+            st.write('Session Elements')
+            on13 = st.toggle("Activate features", key = 'nn12')
+            if on13:
+                if 'counter' not in st.session_state:
+                    st.session_state.counter = 0
+    
+                def increment_counter():
+                    st.session_state.counter += 1
+    
+                st.write("Counter:", st.session_state.counter)
+                st.button("Increment", on_click=increment_counter, type='primary')
+            else: 
+                st.code("""if 'counter' not in st.session_state:
+st.session_state.counter = 0
+
+def increment_counter():
+st.session_state.counter += 1
+
+st.write("Counter:", st.session_state.counter)
+st.button("Increment", on_click=increment_counter)""")
 
             st.write('Database')  
             st.code("""
