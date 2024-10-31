@@ -1065,6 +1065,7 @@ if st.session_state.page == "Home":
                     
                 annotation("COOL", border='3px groove yellow'), 
             ) 
+        with col3:
             st.write('Card:')
             x8 = st.toggle("See code", key = 'x8')
             if x8:  
