@@ -1165,7 +1165,8 @@ with tab3:
             title="Personality Type Scores",
             xaxis_title="Personality Type",
             yaxis_title="Scores",
-            plot_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent paper background
             title_x=0.5,  # Center the title
             height=400,
             width=600,
@@ -1173,6 +1174,7 @@ with tab3:
         )
     
         st.plotly_chart(fig, use_container_width=True)
+
     
         # Additional insights
         st.subheader("Insights:")
