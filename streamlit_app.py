@@ -483,7 +483,7 @@ st.write("This is hidden text")""")
         if on12:
             from PIL import Image
 
-            image = Image.open(r"C:\Users\nasreenn\Desktop\azure-open-ai-embeddings-qna\code\pages\streamlit-logo.png")
+            image = Image.open("https://github.com/Nargis45/Streamlit_cheat_sheet/blob/main/streamlit-logo.png")
             st.image(image, caption="Streamlit Logo")
 
             # st.audio("path_to_audio.mp3")
