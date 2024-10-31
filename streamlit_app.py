@@ -14,5 +14,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+#tabs
+listTabs = ["Cheat Sheet", "Designs"]
+tab1, tab2= st.tabs(listTabs)
 
 
