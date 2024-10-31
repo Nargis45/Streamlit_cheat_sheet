@@ -1084,9 +1084,6 @@ with tab2:
                         }
                     )
 with tab3:
-    # Set page configuration
-    st.set_page_config(page_title="Personality Quiz", layout="wide")
-    
     # Define questions and options
     questions = [
         "How do you feel in large social gatherings?",
