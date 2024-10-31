@@ -23,7 +23,6 @@ st.markdown(
 )
 # sidebar
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select a page:", ["Home", "About", "Contact"])
 
 if st.sidebar.button("Home"):
     page = "Home"
