@@ -172,10 +172,10 @@ import streamlit as st""")
                 placeholder5.write('This is a text using st.write')
             else:
                 st.code("""st.title("Hello Streamlit!!")
-    st.header('This is a header')
-    st.subheader('This is a subheader')
-    st.text('This is a text')
-    st.write('This is a text using st.write')""")
+st.header('This is a header')
+st.subheader('This is a subheader')
+st.text('This is a text')
+st.write('This is a text using st.write')""")
                 
             base_html3 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -206,11 +206,11 @@ import streamlit as st""")
     
             else:
                 st.code("""st.markdown('*This* is **a** ***Markdown***')
-    st.caption('This is a caption')
-    st.latex(r'e^{i\pi} + 1 = 0')
-    st.code("print('Hello, Streamlit!')")
-    with st.echo():
-        st.write('Hello, Streamlit!')""")
+st.caption('This is a caption')
+st.latex(r'e^{i\pi} + 1 = 0')
+st.code("print('Hello, Streamlit!')")
+with st.echo():
+    st.write('Hello, Streamlit!')""")
                 
                 base_html2 = """
             <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
