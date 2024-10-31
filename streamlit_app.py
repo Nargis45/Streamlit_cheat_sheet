@@ -1150,7 +1150,7 @@ with tab3:
         
         st.success(f"Your personality type is: **{personality_type}** {emoji}")
         st.write("Scores breakdown:")
-        fig, ax = plt.subplots(figsize=(5, 3))  # Set size of the figure
+        fig, ax = plt.subplots(figsize=(1,1))  # Set size of the figure
         ax.bar(scores.keys(), scores.values(), color=['#FF9999', '#66B3FF', '#99FF99'])
         ax.set_ylabel("Scores")
         ax.set_title("Personality Type Scores")
