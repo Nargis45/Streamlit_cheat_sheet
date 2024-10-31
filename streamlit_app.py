@@ -291,17 +291,17 @@ try:
     1 / 0
 except ZeroDivisionError as e:
     st.exception(e)""")
-        base_html5 = """
-        <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
-            <style>
-            .stApp {{
-                background: linear-gradient(to right, #ff7e5f, #feb47b);
-                color: white;
-            }}
-            </style>
-            {}
-        </div>
-        """
+            base_html5 = """
+            <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
+                <style>
+                .stApp {{
+                    background: linear-gradient(to right, #ff7e5f, #feb47b);
+                    color: white;
+                }}
+                </style>
+                {}
+            </div>
+            """
             on15 = st.toggle("Activate features", key = '14')
             if on15:
                 with st.status("Downloading data..."):
