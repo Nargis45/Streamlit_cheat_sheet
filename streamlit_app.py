@@ -21,34 +21,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background: linear-gradient(to right, #ffefba, #ffffff);
-        color: black;
-    }
-    .sidebar-button {
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        border-radius: 5px;
-        margin: 5px 0;
-        text-decoration: none;
-        color: black;
-        background-color: #f0f0f0;
-        transition: background-color 0.3s ease;
-    }
-    .sidebar-button:hover {
-        background-color: #e0e0e0;
-    }
-    .icon {
-        margin-right: 10px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 # sidebar
 st.sidebar.title("Navigation")
 
