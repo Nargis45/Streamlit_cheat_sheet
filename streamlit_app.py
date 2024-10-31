@@ -33,10 +33,10 @@ elif st.sidebar.button("Contact"):
 else:
     page = "Home"  # Default page
 
-#tabs
-listTabs = ["Cheat Sheet", "Designs"]
-tab1, tab2= st.tabs(listTabs)
 if page == "Home":
+    #tabs
+    listTabs = ["Cheat Sheet", "Designs"]
+    tab1, tab2= st.tabs(listTabs)
     with tab1:
         col1, col2, col3= st.columns([4,5,4])
         with col1:
