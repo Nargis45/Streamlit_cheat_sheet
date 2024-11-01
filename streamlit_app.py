@@ -206,7 +206,7 @@ st.caption('This is a caption')
 st.latex(r'e^{i\pi} + 1 = 0')
 st.code("print('Hello, Streamlit!')")
 with st.echo():
-st.write('Hello, Streamlit!')""")
+    st.write('Hello, Streamlit!')""")
             
             base_html2 = """
         <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -281,12 +281,12 @@ bar.progress(100)
 st.toast('I am here...')
                 
 with st.spinner("Loading..."):
-time.sleep(6)
+    time.sleep(6)
                 
 try:
-1 / 0
+    1 / 0
 except ZeroDivisionError as e:
-st.exception(e)""")
+    st.exception(e)""")
         base_html5 = """
         <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
             <style>
@@ -309,12 +309,12 @@ st.exception(e)""")
                 time.sleep(1)
         else: 
             st.code("""with st.status("Downloading data..."):
-st.write("Searching for data...")
-time.sleep(2)
-st.write("Found URL.")
-time.sleep(1)
-st.write("Downloading data...")
-time.sleep(1)""")
+    st.write("Searching for data...")
+    time.sleep(2)
+    st.write("Found URL.")
+    time.sleep(1)
+    st.write("Downloading data...")
+    time.sleep(1)""")
 
         togg = st.toggle("Activate features", key = 'togg')
         if togg:
@@ -395,8 +395,8 @@ st.color_picker("Pick a color")
 st.toggle('Toggle')
 picture = st.camera_input("Take a picture")
 if picture:
-st.image(picture)
-st.link_button("Go to Google.com", "https://google.com")""")
+    st.image(picture)
+    st.link_button("Go to Google.com", "https://google.com")""")
 
         base_html7 = """
         <div style='color:black; background-color: #f2c5f2; font-size: 14px; padding: 14px; border-radius: 5px; margin-top:0; align: center; text-align: center;'>
@@ -469,17 +469,17 @@ st.file_uploader("Upload a file")""")
 
         else:
             st.code("""with st.container():
-st.write("This is inside a container")
+    st.write("This is inside a container")
 
-col1, col2 = st.columns(2)
-col1.write("This is column 1")
-col2.write("This is column 2")
+    col1, col2 = st.columns(2)
+    col1.write("This is column 1")
+    col2.write("This is column 2")
 
 with st.expander("Expand me"):
-st.write("This is hidden text")
+    st.write("This is hidden text")
                 
 with st.popover('Popover'):
-st.write("This is hidden text")""")
+    st.write("This is hidden text")""")
             
         st.write('Media Elements')
         on12 = st.toggle("Activate features", key = 'nn11')
@@ -650,16 +650,16 @@ st.map(map_data)""")
             else: 
                 st.code("""@st.cache_data
 def load_data():
-time.sleep(3)
-return {"data": "sample"}
+    time.sleep(3)
+    return {"data": "sample"}
 
 data = load_data()
 st.write(data)
 
 @st.cache_resource
 def expensive_computation(x):
-time.sleep(3)
-return x * x
+    time.sleep(3)
+    return x * x
 
 result = expensive_computation(10)
 st.write(result) """)
@@ -681,13 +681,13 @@ st.write(result) """)
                 st.code("""Section1, Section2, Section3 = st.tabs(["Section1", "Section2", "Section3"])
 
 with Section1:
-st.header("Section1")
+    st.header("Section1")
 
 with Section2:
-st.header("Section2")
+    st.header("Section2")
 
 with Section3:
-st.header("Section3")""")
+    st.header("Section3")""")
             
             on16 = st.toggle("Activate features", key = '15')
             if on16:
@@ -700,12 +700,12 @@ st.header("Section3")""")
                         st.write("slider", slider_val, "checkbox", checkbox_val)
             else: 
                 st.code("""with st.form("my_form"):
-slider_val = st.slider("Form slider")
-checkbox_val = st.checkbox("Form checkbox")
-
-submitted = st.form_submit_button("Submit")
-if submitted:
-    st.write("slider", slider_val, "checkbox", checkbox_val)""")
+    slider_val = st.slider("Form slider")
+    checkbox_val = st.checkbox("Form checkbox")
+    
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("slider", slider_val, "checkbox", checkbox_val)""")
 
             st.write('Session Elements')
             on13 = st.toggle("Activate features", key = 'nn12')
@@ -720,10 +720,10 @@ if submitted:
                 st.button("Increment", on_click=increment_counter, type='primary')
             else: 
                 st.code("""if 'counter' not in st.session_state:
-st.session_state.counter = 0
+    st.session_state.counter = 0
 
 def increment_counter():
-st.session_state.counter += 1
+    st.session_state.counter += 1
 
 st.write("Counter:", st.session_state.counter)
 st.button("Increment", on_click=increment_counter)""")
