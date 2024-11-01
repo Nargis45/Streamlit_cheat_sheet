@@ -866,7 +866,7 @@ with tab2:
                         <i class="fa fa-spinner fa-spin" style="color:green;"></i>
                         <i class="fa fa-circle-o-notch fa-spin" style="color:pink;"></i>
                         <i class="fa fa-refresh fa-spin" style="color:brown;"></i>
-                        <i class="fa fa-cog fa-spin" style="color:yellow;"></i>
+                        <i class="fa fa-cog fa-spin" style="color:orange;"></i>
                         <i class="fa fa-spinner fa-pulse"></i>
                     """,
                     unsafe_allow_html=True
@@ -881,7 +881,7 @@ with tab2:
                 <i class="fa fa-spinner fa-spin" style="color:green;"></i>
                 <i class="fa fa-circle-o-notch fa-spin" style="color:pink;"></i>
                 <i class="fa fa-refresh fa-spin" style="color:brown;"></i>
-                <i class="fa fa-cog fa-spin" style="color:yellow;"></i>
+                <i class="fa fa-cog fa-spin" style="color:orange;"></i>
                 <i class="fa fa-spinner fa-pulse"></i>
             """,
             unsafe_allow_html=True
